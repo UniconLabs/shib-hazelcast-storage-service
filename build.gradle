@@ -1,0 +1,18 @@
+plugins {
+    id "java"
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+    maven { url "https://build.shibboleth.net/nexus/content/groups/public" }
+}
+
+dependencies {
+    compile "com.hazelcast:hazelcast:${project.'hazelcast.version'}"
+    compile "edu.internet2.middleware:shibboleth-identityprovider:${project.'shibboleth.version'}"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion='2.1'
+}
