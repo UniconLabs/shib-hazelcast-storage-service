@@ -10,9 +10,17 @@ repositories {
 
 dependencies {
     compile "com.hazelcast:hazelcast:${project.'hazelcast.version'}"
-    compile "edu.internet2.middleware:shibboleth-identityprovider:${project.'shibboleth.version'}"
+    compile "org.opensaml:openws:${project.'openws.version'}"
 }
 
 task wrapper(type: Wrapper) {
     gradleVersion='2.1'
+}
+
+allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint"
+        }
+    }
 }
